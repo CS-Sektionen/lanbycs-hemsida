@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  --color-bg-default: #000000;
+  --color-bg-subtle: #252525;
+  --color-bg-inverted: #ffffff;
+  --color-bg-accent: #965fc3;
+  --color-text-default: #ffffff;
+  --color-text-subtle: #d3d3d3;
+  --color-text-inverted: #000000;
+  --color-text-accent: #965fc3;
+
+  --font-sans: "Poppins", system-ui, sans-serif;
+  --font-display: "Gasoek One", system-ui, sans-serif;
+}
