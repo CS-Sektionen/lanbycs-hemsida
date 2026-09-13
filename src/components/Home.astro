@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Button from "./Button.astro";
 import Footer from "./Footer.astro";
+import Icon from "./Icon.astro";
 import Navbar from "./Navbar.astro";
 import posterImage from "../assets/poster.jpg";
 import computingScienceImage from "../assets/sponsors/computing-science.png";
@@ -223,12 +224,10 @@ const faqItems = [
                   alt={activity.alt}
                 />
                 <div class="pointer-events-none absolute inset-0 bg-bg-accent mix-blend-color" />
-                <span
-                  class="material-symbols-sharp absolute bottom-0 left-0 bg-bg-default p-2"
-                  aria-hidden="true"
-                >
-                  {activity.icon}
-                </span>
+                <Icon
+                  name={activity.icon}
+                  class="absolute bottom-0 left-0 bg-bg-default p-2"
+                />
               </div>
               <h3 class="text-xl font-bold mt-4">{activity.title}</h3>
               <p class="text-text-subtle mt-2">{activity.description}</p>
@@ -285,12 +284,10 @@ const faqItems = [
             <details class="group bg-bg-subtle p-4" open={index === 0}>
               <summary class="flex cursor-pointer list-none justify-between gap-4 font-bold">
                 {item.question}
-                <span
-                  class="material-symbols-sharp group-open:rotate-180"
-                  aria-hidden="true"
-                >
-                  keyboard_arrow_down
-                </span>
+                <Icon
+                  name="keyboard_arrow_down"
+                  class="group-open:rotate-180"
+                />
               </summary>
               <p class="pt-4 text-text-subtle">{item.answer}</p>
             </details>

@@ -1,3 +1,7 @@
+---
+import Icon from "./Icon.astro";
+---
+
 <div
   class="fixed inset-0 z-20 flex translate-x-full flex-col gap-12 bg-bg-subtle p-6 text-white transition-transform duration-300 md:hidden [&.is-open]:translate-x-0"
   data-mobile-menu
@@ -8,9 +12,7 @@
     aria-label="Close menu"
     data-menu-close
   >
-    <span class="material-symbols-sharp" aria-hidden="true">
-      close
-    </span>
+    <Icon name="close" />
   </button>
   <nav
     class="flex flex-col gap-6 font-display text-4xl"

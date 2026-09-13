@@ -1,6 +1,7 @@
 ---
 import Logo from "./Logo.astro";
 import MobileMenu from "./MobileMenu.astro";
+import Icon from "./Icon.astro";
 ---
 
 <header class="fixed top-0 left-0 right-0 z-10 px-3 md:px-6">
@@ -23,9 +24,7 @@ import MobileMenu from "./MobileMenu.astro";
       aria-label="Open menu"
       data-menu-open
     >
-      <span class="material-symbols-sharp" aria-hidden="true">
-        menu
-      </span>
+      <Icon name="menu" />
     </button>
   </div>
 </header>
