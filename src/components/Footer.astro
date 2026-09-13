@@ -1,0 +1,43 @@
+---
+import Logo from "./Logo.astro";
+---
+
+<footer class="bg-bg-accent px-6 pt-8 pb-6 md:p-16">
+  <div class="container mx-auto flex flex-col gap-16 md:gap-32">
+    <div class="flex gap-8 max-w-375 flex-col md:flex-row">
+      <div class="flex flex-1 flex-col gap-4 text-base">
+        <p class="font-bold">
+          LANbyCS is a student-driven working group under the{" "}
+          <a href="https://www.cssektionen.se/" class="underline">
+            CS Section
+          </a>{" "}
+          of the{" "}
+          <a href="https://www.ntkumea.se/en/home-page/" class="underline">
+            NTK
+          </a>{" "}
+          at{" "}
+          <a href="https://www.umu.se/en/" class="underline">
+            Umeå University
+          </a>
+          .
+        </p>
+        <p>
+          This website is in an early state and will be expanded in the future.
+          Stay tuned!
+        </p>
+      </div>
+      <div class="flex flex-1 flex-col items-start gap-4 md:items-end">
+        <div class="flex gap-4">
+          <a href="https://discord.gg/PDe8W4EA4V" aria-label="Discord">
+            <span class="material-symbols-sharp">forum</span>
+          </a>
+          <a href="https://www.facebook.com/lanbycs" aria-label="Facebook">
+            <span class="material-symbols-sharp">thumb_up</span>
+          </a>
+        </div>
+        <a href="mailto:lanbycs@gmail.com">lanbycs@gmail.com</a>
+      </div>
+    </div>
+    <Logo variant="horizontal" class="h-auto w-full" />
+  </div>
+</footer>

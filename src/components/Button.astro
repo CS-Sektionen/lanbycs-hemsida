@@ -1,0 +1,18 @@
+---
+interface Props {
+  href: string;
+  variant?: "primary" | "secondary";
+  class?: string;
+}
+const { href, variant = "primary", class: className = "" } = Astro.props;
+---
+
+<a
+  class={`inline-flex w-fit items-center justify-center gap-1 px-4 py-3 font-bold no-underline ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
+  href={href}
+>
+  <slot />
+  <span class="material-symbols-sharp" aria-hidden="true">
+    arrow_outward
+  </span>
+</a>
