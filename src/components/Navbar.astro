@@ -7,7 +7,7 @@ import Icon from "./Icon.astro";
 <header class="fixed top-0 left-0 right-0 z-10 px-3 md:px-6">
   <div class="container mx-auto grid grid-cols-2 gap-8 p-4 bg-bg-subtle sm:mt-3 md:mt-6">
     <a href="#home" aria-label="LANbyCS home">
-      <Logo />
+      <Logo class="w-auto h-8 md:h-12" />
     </a>
     <nav
       class="hidden flex-1 items-center gap-8 md:flex"
@@ -19,12 +19,12 @@ import Icon from "./Icon.astro";
       <a href="#faq">FAQ</a>
     </nav>
     <button
-      class="ml-auto border-0 bg-transparent text-white md:hidden"
+      class="ml-auto cursor-pointer md:hidden"
       type="button"
       aria-label="Open menu"
       data-menu-open
     >
-      <Icon name="menu" />
+      <Icon name="menu" class="text-[32px]!" />
     </button>
   </div>
 </header>
@@ -34,14 +34,12 @@ import Icon from "./Icon.astro";
   const menu = document.querySelector<HTMLElement>("[data-mobile-menu]");
   const open = document.querySelector<HTMLButtonElement>("[data-menu-open]");
   const close = document.querySelector<HTMLButtonElement>("[data-menu-close]");
-  const links = menu?.querySelectorAll("a");
+
   const setOpen = (value: boolean) => {
     menu?.classList.toggle("is-open", value);
     document.body.classList.toggle("menu-open", value);
   };
+
   open?.addEventListener("click", () => setOpen(true));
   close?.addEventListener("click", () => setOpen(false));
-  links?.forEach((link) =>
-    link.addEventListener("click", () => setOpen(false)),
-  );
 </script>
