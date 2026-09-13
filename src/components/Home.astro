@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import Accordion from "./Accordion.astro";
 import Button from "./Button.astro";
 import Footer from "./Footer.astro";
 import Icon from "./Icon.astro";
@@ -12,61 +13,6 @@ import casualImage from "../assets/casual.jpg";
 import tabletopImage from "../assets/tabletop.jpg";
 import esportsImage from "../assets/esports.jpg";
 import lingonImage from "../assets/lingon.jpg";
-
-const activities = [
-  {
-    title: "Casual",
-    description:
-      "Chill out with some Mario Kart or another party game in our Nintendo Switch corner. We also host tournaments.",
-    image: casualImage,
-    icon: "stadia_controller",
-    alt: "Group of people playing Mario Kart",
-  },
-  {
-    title: "Tabletop",
-    description:
-      "Try out a new game or bring your own! Board games, role-playing games and other analog treats.",
-    image: tabletopImage,
-    icon: "playing_cards",
-    alt: "Board games on a table",
-  },
-  {
-    title: "E-sports",
-    description:
-      "Bring your own gaming setup and squad up with new or old team mates. It's the classic LAN experience.",
-    image: esportsImage,
-    icon: "headset_mic",
-    alt: "Gamers with headsets",
-  },
-];
-
-const faqItems = [
-  {
-    question: "Which games do you play during the LAN?",
-    answer:
-      "We play a mix of popular multiplayer games, party games and whatever the community brings along.",
-  },
-  {
-    question: "Who can attend?",
-    answer:
-      "Our events are aimed primarily at Umeå University students, but anyone 18 or older is welcome to join.",
-  },
-  {
-    question: "I'm not much of a gamer. Can I still come?",
-    answer:
-      "Absolutely! We're all about sharing the fun of playing together. We've got a wide variety of games (both digital and physical) so you might just discover something new you love.",
-  },
-  {
-    question: "Do I need to stay overnight?",
-    answer:
-      "Nope, it's totally up to you. You're welcome to sleep over traditional LAN-style, or head home and come back the next day—whatever works best for you.",
-  },
-  {
-    question: "How do the tournaments work?",
-    answer:
-      "Throughout the LAN, we'll announce various tournaments and activities on the Discord server. Some are run in collaboration with our sponsors and partners, others are held by our crew. Just sign up from the announcement and you'll get all the details you need.",
-  },
-];
 ---
 
 <div class="overflow-hidden" id="home">
@@ -215,24 +161,63 @@ const faqItems = [
           </Button>
         </div>
         <ul class="flex flex-col gap-8">
-          {activities.map((activity) => (
-            <li>
-              <div class="relative h-48">
-                <Image
-                  class="block h-full w-full object-cover"
-                  src={activity.image}
-                  alt={activity.alt}
-                />
-                <div class="pointer-events-none absolute inset-0 bg-bg-accent mix-blend-color" />
-                <Icon
-                  name={activity.icon}
-                  class="absolute bottom-0 left-0 bg-bg-default p-2"
-                />
-              </div>
-              <h3 class="text-xl font-bold mt-4">{activity.title}</h3>
-              <p class="text-text-subtle mt-2">{activity.description}</p>
-            </li>
-          ))}
+          <li>
+            <div class="relative h-48">
+              <Image
+                class="block h-full w-full object-cover"
+                src={casualImage}
+                alt="Group of people playing Mario Kart"
+              />
+              <div class="pointer-events-none absolute inset-0 bg-bg-accent mix-blend-color" />
+              <Icon
+                name="stadia_controller"
+                class="absolute bottom-0 left-0 bg-bg-default text-text-accent p-2"
+              />
+            </div>
+            <h3 class="text-xl font-bold mt-4">Casual</h3>
+            <p class="text-text-subtle mt-2">
+              Chill out with some Mario Kart or another party game in our
+              Nintendo Switch corner. We also host tournaments.
+            </p>
+          </li>
+          <li>
+            <div class="relative h-48">
+              <Image
+                class="block h-full w-full object-cover"
+                src={tabletopImage}
+                alt="Board games on a table"
+              />
+              <div class="pointer-events-none absolute inset-0 bg-bg-accent mix-blend-color" />
+              <Icon
+                name="playing_cards"
+                class="absolute bottom-0 left-0 bg-bg-default text-text-accent p-2"
+              />
+            </div>
+            <h3 class="text-xl font-bold mt-4">Tabletop</h3>
+            <p class="text-text-subtle mt-2">
+              Try out a new game or bring your own! Board games, role-playing
+              games and other analog treats.
+            </p>
+          </li>
+          <li>
+            <div class="relative h-48">
+              <Image
+                class="block h-full w-full object-cover"
+                src={esportsImage}
+                alt="Gamers with headsets"
+              />
+              <div class="pointer-events-none absolute inset-0 bg-bg-accent mix-blend-color" />
+              <Icon
+                name="headset_mic"
+                class="absolute bottom-0 left-0 bg-bg-default text-text-accent p-2"
+              />
+            </div>
+            <h3 class="text-xl font-bold mt-4">E-sports</h3>
+            <p class="text-text-subtle mt-2">
+              Bring your own gaming setup and squad up with new or old team
+              mates. It's the classic LAN experience.
+            </p>
+          </li>
         </ul>
       </div>
     </section>
@@ -280,18 +265,26 @@ const faqItems = [
           </p>
         </div>
         <div class="flex flex-col gap-4">
-          {faqItems.map((item, index) => (
-            <details class="group bg-bg-subtle p-4" open={index === 0}>
-              <summary class="flex cursor-pointer list-none justify-between gap-4 font-bold">
-                {item.question}
-                <Icon
-                  name="keyboard_arrow_down"
-                  class="group-open:rotate-180"
-                />
-              </summary>
-              <p class="pt-4 text-text-subtle">{item.answer}</p>
-            </details>
-          ))}
+          <Accordion
+            question="Which games do you play during the LAN?"
+            answer="We run tournaments and events in different games each time, and the lineup can change until the LAN party starts. Check our Discord server for the latest details. With that said, you're free to play whatever you want outside of the tournaments!"
+          />
+          <Accordion
+            question="Who can attend?"
+            answer="Our events are aimed primarily at Umeå University students, but anyone 18 or older is welcome to join."
+          />
+          <Accordion
+            question="I'm not much of a gamer. Can I still come?"
+            answer="Absolutely! We're all about sharing the fun of playing together. We've got a wide variety of games (both digital and physical) so you might just discover something new you love."
+          />
+          <Accordion
+            question="Do I need to stay overnight?"
+            answer="Nope, it's totally up to you. You're welcome to sleep over traditional LAN-style, or head home and come back the next day—whatever works best for you."
+          />
+          <Accordion
+            question="How do the tournaments work?"
+            answer="Throughout the LAN, we'll announce various tournaments and activities on the Discord server. Some are run in collaboration with our sponsors and partners, others are held by our crew. Just sign up from the announcement and you'll get all the details you need."
+          />
         </div>
       </div>
     </section>

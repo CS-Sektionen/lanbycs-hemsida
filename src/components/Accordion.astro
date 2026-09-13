@@ -1,0 +1,19 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  question: string;
+  answer: string;
+  open?: boolean;
+}
+
+const { question, answer, open = false } = Astro.props;
+---
+
+<details class="group bg-bg-subtle p-4 open:bg-bg-accent" open={open}>
+  <summary class="flex cursor-pointer list-none justify-between gap-4 font-bold">
+    {question}
+    <Icon name="keyboard_arrow_down" class="group-open:rotate-180" />
+  </summary>
+  <p class="pt-4 text-text-subtle">{answer}</p>
+</details>
