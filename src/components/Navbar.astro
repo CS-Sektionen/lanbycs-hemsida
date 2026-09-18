@@ -4,8 +4,9 @@ import MobileMenu from "./MobileMenu.astro";
 import Icon from "./Icon.astro";
 ---
 
-<header class="fixed top-0 left-0 right-0 z-10 px-3 md:px-6">
-  <div class="container mx-auto grid grid-cols-2 gap-8 p-4 bg-bg-subtle sm:mt-3 md:mt-6">
+<header class="fixed top-0 left-0 right-0 z-10 px-7 pt-7 md:px-16 md:pt-10">
+  <div class="relative container mx-auto grid grid-cols-2 gap-8">
+    <div class="absolute -inset-4 -z-10 bg-bg-subtle" aria-hidden="true" />
     <a href="#home" aria-label="LANbyCS home">
       <Logo class="w-auto h-8 md:h-12" />
     </a>
@@ -19,7 +20,7 @@ import Icon from "./Icon.astro";
       <a href="#faq">FAQ</a>
     </nav>
     <button
-      class="ml-auto cursor-pointer md:hidden"
+      class="ml-auto cursor-pointer leading-none md:hidden"
       type="button"
       aria-label="Open menu"
       data-menu-open
