@@ -1,14 +1,14 @@
 ---
-import Logo from "./Logo.astro";
 import MobileMenu from "./MobileMenu.astro";
 import Icon from "./Icon.astro";
+import LogoVertical from "../assets/logo-vertical.svg";
 ---
 
 <header class="fixed top-0 left-0 right-0 z-10 px-7 pt-7 md:px-16 md:pt-10">
   <div class="relative container mx-auto grid grid-cols-2 gap-8">
     <div class="absolute -inset-4 -z-10 bg-bg-subtle" aria-hidden="true" />
     <a href="#home" aria-label="LANbyCS home">
-      <Logo class="w-auto h-8 md:h-12" />
+      <LogoVertical class="w-auto h-8 md:h-12" />
     </a>
     <nav
       class="hidden flex-1 items-center gap-8 md:flex"
