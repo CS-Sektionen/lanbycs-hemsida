@@ -1,0 +1,31 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  time: string;
+  isTournament?: boolean;
+  isHighlighted?: boolean;
+}
+
+const { title, description, time, isTournament, isHighlighted } = Astro.props;
+---
+
+<li
+  class={`relative p-4 flex flex-col items-start gap-4 lg:flex-row ${isHighlighted ? "bg-bg-accent" : "bg-bg-subtle"}`}
+>
+  <span class="bg-bg-default font-bold p-2">{time}</span>
+  <div class="w-full">
+    <div class="flex items-center gap-4 w-full">
+      <h3 class="text-xl font-bold w-full">{title}</h3>
+      {isTournament && (
+        <div class="absolute top-4 right-4 flex items-center gap-1 lg:static">
+          <Icon name="swords" class="text-[16px]!" />
+          <span class="font-bold">Tournament</span>
+        </div>
+      )}
+    </div>
+    <p class="text-text-subtle">{description}</p>
+  </div>
+</li>
