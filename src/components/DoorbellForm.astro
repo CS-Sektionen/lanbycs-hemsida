@@ -15,7 +15,7 @@ interface Props {
   <h2 class="font-bold text-xl">Which entrance are you at?</h2>
   <div class="mt-4 flex flex-col gap-4">
     {Astro.props.entrances.map((entrance) => (
-      <label class="group flex w-full cursor-pointer bg-bg-subtle">
+      <label class="flex w-full cursor-pointer bg-bg-subtle hover-snipe">
         <input
           type="radio"
           name="entrance"
@@ -24,7 +24,7 @@ interface Props {
         />
         <div class="flex w-full gap-3 p-4 group-has-checked:bg-bg-accent">
           <div class="size-6 shrink-0 rounded-full bg-bg-default group-has-checked:bg-bg-inverted" />
-          <div class="flex flex-col gap-1 text-text-subtle group-has-checked:text-text-default">
+          <div class="flex flex-col gap-1">
             <span class="font-bold">{entrance.name}</span>
             {entrance.description && (
               <span class="text-sm text-text-subtle">

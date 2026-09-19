@@ -18,21 +18,21 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
     >
       <a
         href="/"
-        class={currentPath === "/" ? "font-bold" : "text-text-subtle"}
+        class={`hover-snipe ${currentPath === "/" ? "font-bold" : "text-text-subtle"}`}
         aria-current={currentPath === "/" ? "page" : undefined}
       >
         HOME
       </a>
       <a
         href="/schedule"
-        class={currentPath === "/schedule" ? "font-bold" : "text-text-subtle"}
+        class={`hover-snipe ${currentPath === "/schedule" ? "font-bold" : "text-text-subtle"}`}
         aria-current={currentPath === "/schedule" ? "page" : undefined}
       >
         SCHEDULE
       </a>
       <a
         href="/about"
-        class={currentPath === "/about" ? "font-bold" : "text-text-subtle"}
+        class={`hover-snipe ${currentPath === "/about" ? "font-bold" : "text-text-subtle"}`}
         aria-current={currentPath === "/about" ? "page" : undefined}
       >
         ABOUT

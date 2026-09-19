@@ -24,3 +24,13 @@ body {
   color: var(--color-text-default);
   font-family: var(--font-sans);
 }
+
+/* All underlined links automatically get a hover effect */
+a.underline {
+  @apply underline-offset-2 transition-all hover:underline-offset-4 hover:opacity-80;
+}
+
+/* Apply this class for a cool hover effect */
+.hover-snipe {
+  @apply outline-2 outline-offset-16 outline-transparent transition-all focus-within:outline-offset-4 focus-within:outline-text-accent hover:outline-offset-4 hover:outline-text-accent;
+}

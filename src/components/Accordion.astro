@@ -10,7 +10,10 @@ interface Props {
 const { question, answer, open = false } = Astro.props;
 ---
 
-<details class="group bg-bg-subtle open:bg-bg-accent" open={open}>
+<details
+  class="group bg-bg-subtle transition-all open:bg-bg-accent hover-snipe"
+  open={open}
+>
   <summary class="flex cursor-pointer list-none justify-between gap-4 p-4 font-bold">
     {question}
     <Icon name="keyboard_arrow_down" class="group-open:rotate-180" />

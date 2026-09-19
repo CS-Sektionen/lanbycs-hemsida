@@ -25,7 +25,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
   >
     <a
       href="/"
-      class={`flex justify-between items-center ${currentPath === "/" ? "text-text-inverted" : ""}`}
+      class={`flex justify-between items-center transition-colors hover:text-text-inverted ${currentPath === "/" ? "text-text-inverted" : ""}`}
       aria-current={currentPath === "/" ? "page" : undefined}
     >
       <span>HOME</span>
@@ -35,7 +35,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
     </a>
     <a
       href="/schedule"
-      class={`flex justify-between items-center ${currentPath === "/schedule" ? "text-text-inverted" : ""}`}
+      class={`flex justify-between items-center transition-colors hover:text-text-inverted ${currentPath === "/schedule" ? "text-text-inverted" : ""}`}
       aria-current={currentPath === "/schedule" ? "page" : undefined}
     >
       <span>SCHEDULE</span>
@@ -45,7 +45,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
     </a>
     <a
       href="/about"
-      class={`flex justify-between items-center ${currentPath === "/about" ? "text-text-inverted" : ""}`}
+      class={`flex justify-between items-center transition-colors hover:text-text-inverted ${currentPath === "/about" ? "text-text-inverted" : ""}`}
       aria-current={currentPath === "/about" ? "page" : undefined}
     >
       <span>ABOUT</span>

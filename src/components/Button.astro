@@ -28,7 +28,7 @@ const iconName = href ? (icon ?? defaultLinkIcon) : icon;
 
 {href ? (
   <a
-    class={`flex w-fit items-center justify-center gap-2 px-4 py-3 font-bold ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
+    class={`group flex w-fit items-center justify-center gap-2 px-4 py-3 font-bold hover-snipe hover:bg-bg-accent hover:text-text-default active:scale-90 ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
     href={href}
     {...props}
     target={isExternal ? "_blank" : "_self"}
@@ -40,7 +40,7 @@ const iconName = href ? (icon ?? defaultLinkIcon) : icon;
   </a>
 ) : (
   <button
-    class={`flex w-fit items-center justify-center gap-2 px-4 py-3 font-bold cursor-pointer ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
+    class={`group flex w-fit items-center justify-center gap-2 px-4 py-3 font-bold cursor-pointer hover-snipe hover:bg-bg-accent hover:text-text-default active:scale-90 ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
     {...props}
   >
     {iconName && iconSide === "left" && <Icon name={iconName} />}
