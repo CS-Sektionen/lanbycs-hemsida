@@ -13,30 +13,38 @@ interface Props extends HTMLAttributes<"button"> {
 const {
   href,
   variant = "primary",
-  icon = "arrow_outward",
+  icon,
   iconSide = "right",
   class: className = "",
   ...props
 } = Astro.props;
+
+const isExternal = href
+  ? new URL(href, Astro.url).origin !== Astro.url.origin
+  : false;
+const defaultLinkIcon = isExternal ? "arrow_outward" : "arrow_forward";
+const iconName = href ? (icon ?? defaultLinkIcon) : icon;
 ---
 
 {href ? (
   <a
-    class={`inline-flex w-fit items-center justify-center gap-2 px-4 py-3 font-bold ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
+    class={`flex w-fit items-center justify-center gap-2 px-4 py-3 font-bold ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
     href={href}
     {...props}
+    target={isExternal ? "_blank" : "_self"}
+    rel={isExternal ? "noopener noreferrer" : undefined}
   >
-    {iconSide === "left" && <Icon name={icon} />}
+    {iconName && iconSide === "left" && <Icon name={iconName} />}
     <slot />
-    {iconSide === "right" && <Icon name={icon} />}
+    {iconName && iconSide === "right" && <Icon name={iconName} />}
   </a>
 ) : (
   <button
-    class={`inline-flex w-fit items-center justify-center gap-2 px-4 py-3 font-bold cursor-pointer ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
+    class={`flex w-fit items-center justify-center gap-2 px-4 py-3 font-bold cursor-pointer ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
     {...props}
   >
-    {iconSide === "left" && <Icon name={icon} />}
+    {iconName && iconSide === "left" && <Icon name={iconName} />}
     <slot />
-    {iconSide === "right" && <Icon name={icon} />}
+    {iconName && iconSide === "right" && <Icon name={iconName} />}
   </button>
 )}
