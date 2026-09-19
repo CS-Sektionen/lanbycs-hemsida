@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Button from "../components/Button.astro";
+import plushImage from "../assets/plush.jpg";
+import CrewMember from "../components/CrewMember.astro";
+---
+
+<Layout>
+  <!-- Bio -->
+  <section class="px-6 pb-6 pt-24 md:px-16 md:pb-16 md:pt-32" id="bio">
+    <div class="container mx-auto flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-8">
+      <div class="flex flex-col items-start gap-4">
+        <h2 class="font-display text-3xl md:text-5xl text-balance">
+          GAMING AT UNI SINCE 2018
+        </h2>
+        <p class="max-w-160 text-text-subtle">
+          LANbyCS arranges LAN parties for students at Umeå University during
+          both the spring and autumn semester. Sometimes we collaborate with
+          other Swedish campuses to host larger events.
+        </p>
+        <p class="max-w-160 text-text-subtle">
+          With a passion for gaming, we want to create a fun and social
+          experience for all participants. Our vision is to create a community
+          around gaming and give students the opportunity to meet, play together
+          and have fun!
+        </p>
+        <p class="max-w-160 text-text-subtle">
+          We are a working group within the{" "}
+          <a href="https://www.cssektionen.se/" class="underline">
+            CS Section
+          </a>{" "}
+          of the{" "}
+          <a href="https://www.ntkumea.se/en/home-page/" class="underline">
+            NTK (Umeå Student Union of Science and Technology)
+          </a>
+          .
+        </p>
+      </div>
+      <div class="relative">
+        <Image
+          class="block h-48 w-full object-cover md:h-128"
+          src={plushImage}
+          alt="A plush toy next to a laptop"
+        />
+        <div class="pointer-events-none absolute inset-0 bg-bg-accent mix-blend-color" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Crew -->
+  <section class="border-t-2 border-bg-subtle px-6 py-8 md:p-16" id="crew">
+    <div class="container mx-auto flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-8">
+      <div class="flex flex-col items-start gap-4">
+        <h2 class="font-display text-3xl md:text-5xl text-balance">THE CREW</h2>
+        <p class="max-w-160 text-text-subtle">
+          We're a bunch of students who love games and bringing LAN parties to
+          you!
+        </p>
+      </div>
+      <ul class="flex flex-col gap-4">
+        <CrewMember
+          name="Marcus"
+          role="Graphic and web designer"
+          isHighlighted
+        />
+        <CrewMember name="Marcus" role="Graphic and web designer" />
+        <CrewMember name="Marcus" role="Graphic and web designer" />
+        <CrewMember name="Marcus" role="Graphic and web designer" />
+      </ul>
+    </div>
+  </section>
+
+  <!-- Join -->
+  <section class="border-t-2 border-bg-subtle px-6 py-8 md:p-16" id="join">
+    <div class="container mx-auto flex flex-col items-center gap-8 text-center">
+      <h2 class="font-display text-3xl font-normal md:text-5xl text-balance">
+        WANT TO HELP US?
+      </h2>
+      <p class="text-text-subtle">
+        We're always looking for new, enthusiastic crew members that can help us
+        keep LANbyCS going! If you're interested, please contact us via Discord
+        or email.
+      </p>
+      <div class="flex gap-4 flex-wrap justify-center">
+        <Button href="https://discord.gg/PDe8W4EA4V">Discord</Button>
+        <Button href="mailto:lanbycs@example.com" variant="secondary">
+          Email
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>
