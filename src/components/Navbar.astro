@@ -2,6 +2,8 @@
 import MobileMenu from "./MobileMenu.astro";
 import Icon from "./Icon.astro";
 import LogoVertical from "../assets/logo-vertical.svg";
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <header class="fixed top-0 left-0 right-0 z-10 px-7 pt-7 md:px-16 md:pt-10">
@@ -14,9 +16,27 @@ import LogoVertical from "../assets/logo-vertical.svg";
       class="hidden flex-1 items-center gap-8 md:flex"
       aria-label="Main navigation"
     >
-      <a href="/">Home</a>
-      <a href="/schedule">Schedule</a>
-      <a href="/about">About</a>
+      <a
+        href="/"
+        class={currentPath === "/" ? "font-bold" : "text-text-subtle"}
+        aria-current={currentPath === "/" ? "page" : undefined}
+      >
+        HOME
+      </a>
+      <a
+        href="/schedule"
+        class={currentPath === "/schedule" ? "font-bold" : "text-text-subtle"}
+        aria-current={currentPath === "/schedule" ? "page" : undefined}
+      >
+        SCHEDULE
+      </a>
+      <a
+        href="/about"
+        class={currentPath === "/about" ? "font-bold" : "text-text-subtle"}
+        aria-current={currentPath === "/about" ? "page" : undefined}
+      >
+        ABOUT
+      </a>
     </nav>
     <button
       class="ml-auto cursor-pointer leading-none md:hidden"

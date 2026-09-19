@@ -1,6 +1,8 @@
 ---
 import Icon from "./Icon.astro";
 import LogoHorizontal from "../assets/logo-horizontal.svg";
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <div
@@ -21,17 +23,35 @@ import LogoHorizontal from "../assets/logo-horizontal.svg";
     class="flex flex-col flex-1 justify-center gap-8 font-display text-4xl"
     aria-label="Mobile navigation"
   >
-    <a href="/" class="flex justify-between items-center">
+    <a
+      href="/"
+      class={`flex justify-between items-center ${currentPath === "/" ? "text-text-inverted" : ""}`}
+      aria-current={currentPath === "/" ? "page" : undefined}
+    >
       <span>HOME</span>
-      <Icon name="arrow_forward" class="text-[32px]!" />
+      {currentPath !== "/" && (
+        <Icon name="arrow_forward" class="text-[32px]!" />
+      )}
     </a>
-    <a href="/schedule" class="flex justify-between items-center">
+    <a
+      href="/schedule"
+      class={`flex justify-between items-center ${currentPath === "/schedule" ? "text-text-inverted" : ""}`}
+      aria-current={currentPath === "/schedule" ? "page" : undefined}
+    >
       <span>SCHEDULE</span>
-      <Icon name="arrow_forward" class="text-[32px]!" />
+      {currentPath !== "/schedule" && (
+        <Icon name="arrow_forward" class="text-[32px]!" />
+      )}
     </a>
-    <a href="/about" class="flex justify-between items-center">
+    <a
+      href="/about"
+      class={`flex justify-between items-center ${currentPath === "/about" ? "text-text-inverted" : ""}`}
+      aria-current={currentPath === "/about" ? "page" : undefined}
+    >
       <span>ABOUT</span>
-      <Icon name="arrow_forward" class="text-[32px]!" />
+      {currentPath !== "/about" && (
+        <Icon name="arrow_forward" class="text-[32px]!" />
+      )}
     </a>
   </nav>
   <LogoHorizontal class="h-auto w-full text-text-inverted" />
