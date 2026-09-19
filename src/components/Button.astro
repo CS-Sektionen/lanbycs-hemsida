@@ -1,18 +1,42 @@
 ---
 import Icon from "./Icon.astro";
+import type { HTMLAttributes } from "astro/types";
 
-interface Props {
-  href: string;
+interface Props extends HTMLAttributes<"button"> {
+  href?: string;
   variant?: "primary" | "secondary";
+  icon?: string;
+  iconSide?: "left" | "right";
   class?: string;
 }
-const { href, variant = "primary", class: className = "" } = Astro.props;
+
+const {
+  href,
+  variant = "primary",
+  icon = "arrow_outward",
+  iconSide = "right",
+  class: className = "",
+  ...props
+} = Astro.props;
 ---
 
-<a
-  class={`inline-flex w-fit items-center justify-center gap-1 px-4 py-3 font-bold no-underline ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
-  href={href}
->
-  <slot />
-  <Icon name="arrow_outward" />
-</a>
+{href ? (
+  <a
+    class={`inline-flex w-fit items-center justify-center gap-2 px-4 py-3 font-bold ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
+    href={href}
+    {...props}
+  >
+    {iconSide === "left" && <Icon name={icon} />}
+    <slot />
+    {iconSide === "right" && <Icon name={icon} />}
+  </a>
+) : (
+  <button
+    class={`inline-flex w-fit items-center justify-center gap-2 px-4 py-3 font-bold cursor-pointer ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
+    {...props}
+  >
+    {iconSide === "left" && <Icon name={icon} />}
+    <slot />
+    {iconSide === "right" && <Icon name={icon} />}
+  </button>
+)}
