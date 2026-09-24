@@ -15,7 +15,7 @@ interface Props {
   <h2 class="font-bold text-xl">Which entrance are you at?</h2>
   <div class="mt-4 flex flex-col gap-4">
     {Astro.props.entrances.map((entrance) => (
-      <label class="flex w-full cursor-pointer bg-bg-subtle hover-snipe">
+      <label class="group flex w-full cursor-pointer bg-bg-subtle hover-snipe">
         <input
           type="radio"
           name="entrance"
