@@ -8,7 +8,11 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 
 <header class="fixed top-0 left-0 right-0 z-10 px-7 pt-7 md:px-16 md:pt-10">
   <div class="relative container mx-auto grid grid-cols-2 gap-8">
-    <div class="absolute -inset-4 -z-10 bg-bg-subtle" aria-hidden="true" />
+    <div
+      class="absolute -inset-4 -z-10 bg-bg-subtle"
+      style="--chamfer-size: calc(var(--spacing) * 4); clip-path: polygon(0 var(--chamfer-size), var(--chamfer-size) 0, 100% 0, 100% calc(100% - var(--chamfer-size)), calc(100% - var(--chamfer-size)) 100%, 0 100%);"
+      aria-hidden="true"
+    />
     <a href="/" aria-label="LANbyCS home">
       <LogoVertical class="w-auto h-8 md:h-12" />
     </a>
