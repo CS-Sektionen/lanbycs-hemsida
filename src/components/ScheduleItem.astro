@@ -15,7 +15,9 @@ const { title, description, time, isTournament, isHighlighted } = Astro.props;
 <li
   class={`relative p-4 flex flex-col items-start gap-4 lg:flex-row ${isHighlighted ? "bg-bg-accent" : "bg-bg-subtle"}`}
 >
-  <span class="bg-bg-default font-bold p-2">{time}</span>
+  <span class="flex items-center justify-center w-18 bg-bg-default font-bold p-2">
+    {time}
+  </span>
   <div class="w-full">
     <div class="flex items-center gap-4 w-full">
       <h3 class="text-xl font-bold w-full">{title}</h3>
