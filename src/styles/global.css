@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  --color-bg-default: #000000;
+  --color-bg-subtle: #252525;
+  --color-bg-inverted: #ffffff;
+  --color-bg-accent: #965fc3;
+  --color-text-default: #ffffff;
+  --color-text-subtle: #d3d3d3;
+  --color-text-inverted: #000000;
+  --color-text-accent: #965fc3;
+
+  --font-sans: "Poppins", system-ui, sans-serif;
+  --font-display: "Gasoek One", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg-default);
+  color: var(--color-text-default);
+  font-family: var(--font-sans);
+}
+
+/* All underlined links automatically get a hover effect */
+a.underline {
+  @apply underline-offset-2 transition-all hover:underline-offset-4 hover:opacity-80;
+}
+
+/* Apply this class for a cool hover effect */
+.hover-snipe {
+  @apply outline-2 outline-offset-16 outline-transparent transition-all focus-within:outline-offset-4 focus-within:outline-text-accent hover:outline-offset-4 hover:outline-text-accent;
+}

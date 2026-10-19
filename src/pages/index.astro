@@ -1,0 +1,292 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Accordion from "../components/Accordion.astro";
+import Button from "../components/Button.astro";
+import Countdown from "../components/Countdown.astro";
+import Icon from "../components/Icon.astro";
+import posterImage from "../assets/poster.jpg";
+import computingScienceImage from "../assets/sponsors/computing-science.png";
+import redBullImage from "../assets/sponsors/red-bull.png";
+import snacksImage from "../assets/snacks.jpg";
+import casualImage from "../assets/casual.jpg";
+import tabletopImage from "../assets/tabletop.jpg";
+import esportsImage from "../assets/esports.jpg";
+import lingonImage from "../assets/lingon.jpg";
+---
+
+<Layout>
+  <!-- Hero -->
+  <section class="max-h-256 h-screen bg-[linear-gradient(180deg,#315fcd_0%,#f85fb9_50%,#ffcd72_100%)] px-6 pb-6 pt-24 md:px-16 md:pb-16 md:pt-32">
+    <div class="container h-full mx-auto flex flex-col gap-4 lg:grid lg:grid-cols-2 lg:gap-8">
+      <div class="flex flex-col gap-4 justify-between md:flex-1">
+        <div>
+          <h1 class="font-display text-4xl font-normal md:text-6xl text-balance">
+            AUTUMN 2026 LAN PARTY
+          </h1>
+          <p class="mt-4 text-xl font-bold">LANbyCS #17</p>
+        </div>
+        <div class="text-text-inverted font-bold">
+          <h2 class="font-sans text-xl md:text-3xl text-balance">
+            2 days of video games, board games and vibes!
+          </h2>
+          <p class="mt-4 flex gap-4 md:gap-8 md:text-xl">
+            <span>
+              20 NOV 17:00
+              <br />– 22 NOV 12:00
+            </span>
+            <span>
+              KBC BUILDING
+              <br />
+              CAMPUS UMEÅ
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="relative flex flex-col justify-between gap-4 flex-1 lg:gap-8">
+        <div class="relative h-full overflow-hidden bg-[radial-gradient(ellipse_at_50%_100%,#6c3c94,#e181cc)]">
+          <Image
+            class="absolute min-w-none left-1/2 top-[-20%] w-[75%] translate-x-[-40%] rotate-10 shadow-[0_16px_32px_#0003]"
+            src={posterImage}
+            alt="LANbyCS Autumn 2026 event poster"
+          />
+          <Countdown to="2026-11-20T17:00:00+02:00" />
+        </div>
+        <div class="flex gap-4 flex-wrap">
+          <Button href="https://open.hitract.se/hitevent/18175">
+            Get tickets
+          </Button>
+          <Button href="https://discord.gg/PDe8W4EA4V" variant="secondary">
+            Join our Discord
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sponsors -->
+  <!-- <section class="relative border-t-2 border-bg-subtle bg-bg-subtle px-6 py-8 md:p-16 isolate">
+    <div class="absolute inset-0 bg-[url('/symbol-tile.svg')] bg-center opacity-3 -z-10" />
+    <div class="container mx-auto flex flex-col items-center gap-8 text-center text-text-subtle">
+      <p>Sponsored by</p>
+      <div class="flex items-center gap-4 md:gap-8">
+        <a href="https://www.umu.se/en/department-of-computing-science/">
+          <Image
+            class="w-48 max-h-12 object-contain md:w-76"
+            src={computingScienceImage}
+            alt="Department of Computing Science"
+          />
+        </a>
+        <a href="https://jobs.redbull.com/us-en/microsite/student-marketeer">
+          <Image
+            class="w-15 max-h-12 object-contain md:w-21"
+            src={redBullImage}
+            alt="Red Bull"
+          />
+        </a>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Schedule CTA -->
+  <!-- <section class="border-t-2 border-bg-subtle px-6 py-8 md:p-16" id="schedule">
+    <div class="container mx-auto flex flex-col items-center gap-8 text-center">
+      <h2 class="max-w-160 font-display text-3xl font-normal md:text-5xl text-balance">
+        THE SCHEDULE IS LIVE!
+      </h2>
+      <p class="text-text-subtle">
+        Check the time and place for tournaments during the LAN.
+      </p>
+      <Button href="/schedule">View schedule</Button>
+    </div>
+  </section> -->
+
+  <!-- Image -->
+  <section class="border-t-2 border-bg-subtle px-6 py-8 md:p-16">
+    <div class="relative container mx-auto">
+      <Image
+        class="block h-48 w-full object-cover md:h-128"
+        src={snacksImage}
+        alt="Two people eating snacks from a plastic container"
+      />
+      <div class="pointer-events-none absolute inset-0 bg-bg-accent mix-blend-color" />
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="border-t-2 border-bg-subtle px-6 py-8 md:p-16" id="about">
+    <div class="container mx-auto flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-8">
+      <div class="flex flex-col items-start gap-4">
+        <h2 class="font-display text-3xl md:text-5xl text-balance">
+          A WEEKEND OF NERDY FUN
+        </h2>
+        <p class="max-w-160 text-text-subtle">
+          Bring a controller, a good friend or just your best mood. All students
+          at Umeå University are welcome! No matter if you're a hardcore gamer
+          or just want a fun break from your studies.
+        </p>
+        <Button href="/about" variant="secondary">
+          More about us
+        </Button>
+      </div>
+      <ul class="flex flex-col gap-8">
+        <li>
+          <div class="relative h-48">
+            <Image
+              class="block h-full w-full object-cover"
+              src={casualImage}
+              alt="Group of people playing Mario Kart"
+            />
+            <div class="pointer-events-none absolute inset-0 bg-bg-accent mix-blend-color" />
+            <Icon
+              name="stadia_controller"
+              class="absolute bottom-0 left-0 text-[32px]! bg-bg-default text-text-accent p-2"
+            />
+          </div>
+          <h3 class="text-xl font-bold mt-4">Casual</h3>
+          <p class="text-text-subtle mt-2">
+            Chill out with some Mario Kart or another party game in our Nintendo
+            Switch corner. We also host tournaments.
+          </p>
+        </li>
+        <li>
+          <div class="relative h-48">
+            <Image
+              class="block h-full w-full object-cover"
+              src={tabletopImage}
+              alt="Board games on a table"
+            />
+            <div class="pointer-events-none absolute inset-0 bg-bg-accent mix-blend-color" />
+            <Icon
+              name="playing_cards"
+              class="absolute bottom-0 left-0 text-[32px]! bg-bg-default text-text-accent p-2"
+            />
+          </div>
+          <h3 class="text-xl font-bold mt-4">Tabletop</h3>
+          <p class="text-text-subtle mt-2">
+            Try out a new game or bring your own! Board games, role-playing
+            games and other analog treats.
+          </p>
+        </li>
+        <li>
+          <div class="relative h-48">
+            <Image
+              class="block h-full w-full object-cover"
+              src={esportsImage}
+              alt="Gamers with headsets"
+            />
+            <div class="pointer-events-none absolute inset-0 bg-bg-accent mix-blend-color" />
+            <Icon
+              name="headset_mic"
+              class="absolute bottom-0 left-0 text-[32px]! bg-bg-default text-text-accent p-2"
+            />
+          </div>
+          <h3 class="text-xl font-bold mt-4">E-sports</h3>
+          <p class="text-text-subtle mt-2">
+            Bring your own gaming setup and squad up with new or old team mates.
+            It's the classic LAN experience.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="border-t-2 border-bg-subtle px-6 py-8 md:p-16">
+    <div class="container mx-auto flex flex-col items-center gap-8 text-center">
+      <p class="text-xl font-bold md:text-3xl">NO COMPUTER NEEDED</p>
+      <Icon name="lanbycs-sparkle" class="size-6 text-text-accent md:size-8" />
+      <p class="text-xl font-bold md:text-3xl">EVENTS AND TOURNAMENTS</p>
+      <Icon name="lanbycs-sparkle" class="size-6 text-text-accent md:size-8" />
+      <p class="text-xl font-bold md:text-3xl">FREE SNACKS AND RED BULL!</p>
+    </div>
+  </section>
+
+  <!-- Image -->
+  <section class="border-t-2 border-bg-subtle px-6 py-8 md:p-16">
+    <div class="relative container mx-auto">
+      <Image
+        class="block h-48 w-full object-cover md:h-128"
+        src={lingonImage}
+        alt="Rows of desks with participants at a LAN party"
+      />
+      <div class="pointer-events-none absolute inset-0 bg-bg-accent mix-blend-color" />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="border-t-2 border-bg-subtle px-6 py-8 md:p-16" id="faq">
+    <div class="container mx-auto flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-8">
+      <div class="flex flex-col items-start gap-4">
+        <h2 class="font-display text-3xl font-normal md:text-5xl text-balance">
+          FAQ
+        </h2>
+        <p class="text-text-subtle">
+          Here are answers to some of our most common questions. If you have any
+          other questions, don't hesitate to ask in our{" "}
+          <a href="https://discord.gg/PDe8W4EA4V" class="underline">
+            Discord server
+          </a>{" "}
+          or send an email to{" "}
+          <a
+            href="mailto:lanbycs@gmail.com"
+            class="underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            lanbycs@gmail.com
+          </a>
+          .
+        </p>
+      </div>
+      <div class="flex flex-col gap-4">
+        <Accordion
+          question="Which games do you play during the LAN?"
+          answer="We run tournaments and events in different games each time, and the lineup can change until the LAN party starts. Check our Discord server for the latest details. With that said, you're free to play whatever you want outside of the tournaments!"
+          name="faq"
+        />
+        <Accordion
+          question="Who can attend?"
+          answer="Our events are aimed primarily at Umeå University students, but anyone 18 or older is welcome to join."
+          name="faq"
+        />
+        <Accordion
+          question="I'm not much of a gamer. Can I still come?"
+          answer="Absolutely! We're all about sharing the fun of playing together. We've got a wide variety of games (both digital and physical) so you might just discover something new you love."
+          name="faq"
+        />
+        <Accordion
+          question="Do I need to stay overnight?"
+          answer="Nope, it's totally up to you. You're welcome to sleep over traditional LAN-style, or head home and come back the next day—whatever works best for you."
+          name="faq"
+        />
+        <Accordion
+          question="How do the tournaments work?"
+          answer="Throughout the LAN, we'll announce various tournaments and activities on our Discord server. Some are run in collaboration with our sponsors and partners, others are held by our crew. Just sign up from the announcement and you'll get all the details you need."
+          name="faq"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Tickets CTA -->
+  <section class="border-t-2 border-bg-subtle px-6 py-8 md:p-16" id="tickets">
+    <div class="container mx-auto flex flex-col items-center gap-8 text-center">
+      <h2 class="font-display text-3xl font-normal md:text-5xl text-balance">
+        IT'S BETTER WITH YOU!
+      </h2>
+      <p class="text-text-subtle">
+        Get your ticket and join us! Also, tell your friends — the more, the
+        merrier!
+      </p>
+      <div class="flex gap-4 flex-wrap justify-center">
+        <Button href="https://open.hitract.se/hitevent/18175">
+          Get tickets
+        </Button>
+        <Button href="https://discord.gg/PDe8W4EA4V" variant="secondary">
+          Join our Discord
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>

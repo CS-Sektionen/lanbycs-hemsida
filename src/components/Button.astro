@@ -1,0 +1,50 @@
+---
+import Icon from "./Icon.astro";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+  href?: string;
+  variant?: "primary" | "secondary";
+  icon?: string;
+  iconSide?: "left" | "right";
+  class?: string;
+}
+
+const {
+  href,
+  variant = "primary",
+  icon,
+  iconSide = "right",
+  class: className = "",
+  ...props
+} = Astro.props;
+
+const isExternal = href
+  ? new URL(href, Astro.url).origin !== Astro.url.origin
+  : false;
+const defaultLinkIcon = isExternal ? "arrow_outward" : "arrow_forward";
+const iconName = href ? (icon ?? defaultLinkIcon) : icon;
+---
+
+{href ? (
+  <a
+    class={`group flex w-fit items-center justify-center gap-2 px-4 py-3 font-bold hover-snipe hover:bg-bg-accent hover:text-text-default active:scale-90 ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
+    href={href}
+    {...props}
+    target={isExternal ? "_blank" : "_self"}
+    rel={isExternal ? "noopener noreferrer" : undefined}
+  >
+    {iconName && iconSide === "left" && <Icon name={iconName} />}
+    <slot />
+    {iconName && iconSide === "right" && <Icon name={iconName} />}
+  </a>
+) : (
+  <button
+    class={`group flex w-fit items-center justify-center gap-2 px-4 py-3 font-bold cursor-pointer hover-snipe hover:bg-bg-accent hover:text-text-default active:scale-90 ${variant === "primary" ? "bg-bg-inverted text-text-inverted" : "bg-bg-subtle"} ${className}`}
+    {...props}
+  >
+    {iconName && iconSide === "left" && <Icon name={iconName} />}
+    <slot />
+    {iconName && iconSide === "right" && <Icon name={iconName} />}
+  </button>
+)}

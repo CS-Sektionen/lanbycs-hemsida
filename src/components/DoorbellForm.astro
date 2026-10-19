@@ -1,0 +1,102 @@
+---
+import Button from "./Button.astro";
+
+interface Entrance {
+  name: string;
+  description?: string;
+}
+
+interface Props {
+  entrances: Entrance[];
+}
+---
+
+<form data-doorbell>
+  <h2 class="font-bold text-xl">Which entrance are you at?</h2>
+  <div class="mt-4 flex flex-col gap-4">
+    {Astro.props.entrances.map((entrance) => (
+      <label class="group flex w-full cursor-pointer bg-bg-subtle hover-snipe">
+        <input
+          type="radio"
+          name="entrance"
+          value={entrance.name}
+          class="sr-only"
+        />
+        <div class="flex w-full gap-3 p-4 group-has-checked:bg-bg-accent">
+          <div class="size-6 shrink-0 rounded-full bg-bg-default group-has-checked:bg-bg-inverted" />
+          <div class="flex flex-col gap-1">
+            <span class="font-bold">{entrance.name}</span>
+            {entrance.description && (
+              <span class="text-sm text-text-subtle">
+                {entrance.description}
+              </span>
+            )}
+          </div>
+        </div>
+      </label>
+    ))}
+  </div>
+  <Button
+    type="submit"
+    icon="notifications_active"
+    iconSide="left"
+    class="mt-4"
+  >
+    Ring doorbell
+  </Button>
+</form>
+
+<script>
+  // This code might not be the most elegant (it's vibe-coded), but it works :)
+
+  const form = document.querySelector("form[data-doorbell]") as HTMLFormElement;
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const entrance = formData.get("entrance");
+
+    if (!entrance) {
+      alert("Please select an entrance.");
+      return;
+    }
+
+    form.querySelectorAll("input, button").forEach((control) => {
+      (control as HTMLInputElement | HTMLButtonElement).disabled = true;
+    });
+
+    try {
+      const url = "https://ntfy.sh/lanbycs";
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain",
+          Title: "Doorbell",
+          Priority: "urgent",
+          Tags: "bell",
+        } as Record<string, string>,
+        body: `Someone is at ${entrance}`,
+      });
+
+      if (response.ok) {
+        const confirmation = document.createElement("div");
+        confirmation.className = "bg-bg-accent p-4";
+        confirmation.innerHTML =
+          '<h2 class="font-bold text-xl">Doorbell rang!</h2><p class="mt-1">A crew member is on their way soon.</p>';
+        form.replaceWith(confirmation);
+      } else {
+        form.querySelectorAll("input, button").forEach((control) => {
+          (control as HTMLInputElement | HTMLButtonElement).disabled = false;
+        });
+        alert("Failed to ring the doorbell. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      form.querySelectorAll("input, button").forEach((control) => {
+        (control as HTMLInputElement | HTMLButtonElement).disabled = false;
+      });
+      alert("An error occurred. Please try again.");
+    }
+  });
+</script>

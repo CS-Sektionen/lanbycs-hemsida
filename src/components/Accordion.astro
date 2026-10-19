@@ -1,0 +1,54 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  question: string;
+  answer: string;
+  name?: string;
+  defaultOpen?: boolean;
+}
+
+const { question, answer, name, defaultOpen = false } = Astro.props;
+---
+
+<details
+  class="group bg-bg-subtle transition-all open:bg-bg-accent hover-snipe"
+  name={name}
+  open={defaultOpen}
+>
+  <summary class="flex cursor-pointer list-none justify-between gap-4 p-4 font-bold">
+    {question}
+    <Icon
+      name="keyboard_arrow_down"
+      class="transition-transform group-open:rotate-180"
+    />
+  </summary>
+  <p class="px-4 pb-4 text-text-subtle">{answer}</p>
+</details>
+
+<!-- Open/close transition on supported browsers -->
+<style>
+  @supports (interpolate-size: allow-keywords) {
+    details {
+      interpolate-size: allow-keywords;
+    }
+
+    details::details-content {
+      block-size: 0;
+      overflow: clip;
+      transition:
+        block-size 300ms ease,
+        content-visibility 300ms allow-discrete;
+    }
+
+    details[open]::details-content {
+      block-size: auto;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      details::details-content {
+        transition: none;
+      }
+    }
+  }
+</style>

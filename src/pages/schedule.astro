@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ScheduleItem from "../components/ScheduleItem.astro";
+import ScheduleDivider from "../components/ScheduleDivider.astro";
+import Button from "../components/Button.astro";
+import { Image } from "astro:assets";
+import cansImage from "../assets/cans.jpg";
+---
+
+<Layout>
+  <!-- Schedule -->
+  <section class="px-6 pb-6 pt-24 md:px-16 md:pb-16 md:pt-32" id="schedule">
+    <div class="container mx-auto flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-8">
+      <div class="flex flex-col items-start gap-4">
+        <p class="font-bold text-text-subtle">AUTUMN 2026 (LANBYCS #17)</p>
+        <h2 class="font-display text-3xl md:text-5xl text-balance">
+          SCHEDULE COMING SOON
+        </h2>
+        <p class="max-w-160 text-text-subtle">
+          We're still finishing the schedule for the event. In the meantime,
+          check out our Discord server for updates. We'll make an announcement
+          there once the schedule is ready.
+        </p>
+        <Button href="https://discord.gg/PDe8W4EA4V" variant="secondary">
+          Join our Discord
+        </Button>
+      </div>
+      <!-- <ul class="flex flex-col gap-4">
+        <ScheduleDivider text="FRIDAY 20 NOV" />
+        <ScheduleItem
+          title="Item 1"
+          description="This is the first item"
+          time="17:00"
+          isHighlighted
+        />
+        <ScheduleItem
+          title="Item 2"
+          description="This is the second item"
+          time="20:00"
+          isTournament
+        />
+        <ScheduleDivider text="SATURDAY 21 NOV" />
+        <ScheduleItem
+          title="Item 3"
+          description="This is the third item"
+          time="10:00"
+          isTournament
+          isHighlighted
+        />
+        <ScheduleItem
+          title="Item 4"
+          description="This is the fourth item"
+          time="14:00"
+        />
+      </ul> -->
+    </div>
+  </section>
+
+  <!-- Image -->
+  <section class="border-t-2 border-bg-subtle px-6 py-8 md:p-16">
+    <div class="relative container mx-auto">
+      <Image
+        class="block h-48 w-full object-cover md:h-128"
+        src={cansImage}
+        alt="Energy drinks and a Rubik's cube on top of a computer case"
+      />
+      <div class="pointer-events-none absolute inset-0 bg-bg-accent mix-blend-color" />
+    </div>
+  </section>
+</Layout>

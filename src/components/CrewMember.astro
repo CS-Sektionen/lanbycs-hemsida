@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import placeholderAvatarImage from "../assets/placeholder-avatar.png";
+
+interface Props {
+  name: string;
+  role?: string;
+  contact?: string;
+  avatarUrl?: string;
+  isHighlighted?: boolean;
+}
+
+const { name, role, contact, avatarUrl, isHighlighted } = Astro.props;
+
+const isContactEmail = contact?.includes("@");
+---
+
+<li class={`p-4 flex gap-4 ${isHighlighted ? "bg-bg-accent" : "bg-bg-subtle"}`}>
+  <!-- @ts-ignore - ignoring type error due to dynamic src -->
+  <Image
+    class="size-16 object-cover lg:size-24"
+    src={avatarUrl || placeholderAvatarImage}
+    alt=""
+    width={96}
+    height={96}
+  />
+  <div class="flex flex-col justify-between gap-2">
+    <div>
+      <h3 class="text-xl font-bold">{name}</h3>
+      {role && <p>{role}</p>}
+    </div>
+    {contact && isContactEmail ? (
+      <a
+        href={`mailto:${contact}`}
+        class="text-text-subtle underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {contact}
+      </a>
+    ) : (
+      <p class="text-text-subtle">{contact}</p>
+    )}
+  </div>
+</li>

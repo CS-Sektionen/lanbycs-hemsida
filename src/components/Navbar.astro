@@ -1,0 +1,69 @@
+---
+import MobileMenu from "./MobileMenu.astro";
+import Icon from "./Icon.astro";
+import LogoVertical from "../assets/logo-vertical.svg";
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header class="fixed top-0 left-0 right-0 z-10 px-7 pt-7 md:px-16 md:pt-10">
+  <div class="relative container mx-auto grid grid-cols-2 gap-8">
+    <div
+      class="absolute -inset-4 -z-10 bg-bg-subtle"
+      style="--chamfer-size: calc(var(--spacing) * 4); clip-path: polygon(0 var(--chamfer-size), var(--chamfer-size) 0, 100% 0, 100% calc(100% - var(--chamfer-size)), calc(100% - var(--chamfer-size)) 100%, 0 100%);"
+      aria-hidden="true"
+    />
+    <a href="/" aria-label="LANbyCS home">
+      <LogoVertical class="w-auto h-8 md:h-12" />
+    </a>
+    <nav
+      class="hidden flex-1 items-center gap-8 md:flex"
+      aria-label="Main navigation"
+    >
+      <a
+        href="/"
+        class={`hover-snipe ${currentPath === "/" ? "font-bold" : "text-text-subtle"}`}
+        aria-current={currentPath === "/" ? "page" : undefined}
+      >
+        HOME
+      </a>
+      <a
+        href="/schedule"
+        class={`hover-snipe ${currentPath === "/schedule" ? "font-bold" : "text-text-subtle"}`}
+        aria-current={currentPath === "/schedule" ? "page" : undefined}
+      >
+        SCHEDULE
+      </a>
+      <a
+        href="/about"
+        class={`hover-snipe ${currentPath === "/about" ? "font-bold" : "text-text-subtle"}`}
+        aria-current={currentPath === "/about" ? "page" : undefined}
+      >
+        ABOUT
+      </a>
+    </nav>
+    <button
+      class="ml-auto cursor-pointer leading-none md:hidden"
+      type="button"
+      aria-label="Open menu"
+      data-menu-open
+    >
+      <Icon name="menu" class="text-[32px]!" />
+    </button>
+  </div>
+</header>
+<MobileMenu />
+
+<script>
+  const menu = document.querySelector<HTMLElement>("[data-mobile-menu]");
+  const open = document.querySelector<HTMLButtonElement>("[data-menu-open]");
+  const close = document.querySelector<HTMLButtonElement>("[data-menu-close]");
+
+  const setOpen = (value: boolean) => {
+    menu?.classList.toggle("is-open", value);
+    document.body.classList.toggle("menu-open", value);
+  };
+
+  open?.addEventListener("click", () => setOpen(true));
+  close?.addEventListener("click", () => setOpen(false));
+</script>
