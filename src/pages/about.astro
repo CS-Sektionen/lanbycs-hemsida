@@ -50,7 +50,7 @@ import CrewMember from "../components/CrewMember.astro";
 
   <!-- Crew -->
   <section class="border-t-2 border-bg-subtle px-6 py-8 md:p-16" id="crew">
-    <div class="container mx-auto flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-8">
+    <div class="container mx-auto flex flex-col gap-8 md:gap-8">
       <div class="flex flex-col items-start gap-4">
         <h2 class="font-display text-3xl md:text-5xl text-balance">THE CREW</h2>
         <p class="max-w-160 text-text-subtle">
@@ -58,20 +58,57 @@ import CrewMember from "../components/CrewMember.astro";
           you!
         </p>
       </div>
-      <ul class="flex flex-col gap-4">
+      <ul class="grid gap-4 lg:grid-cols-2">
         <CrewMember
-          name="Marcus"
-          role="Graphic and web designer"
+          name="RadioLurken (Lukas)"
+          role="Project manager"
+          contact="lanbycs@gmail.com"
+          avatarUrl="https://cdn.discordapp.com/avatars/216842183473364992/6de9a30c21eace52c2229a3295b39c51.webp?size=96"
           isHighlighted
         />
-        <CrewMember name="Marcus" role="Graphic and web designer" />
-        <CrewMember name="Marcus" role="Graphic and web designer" />
-        <CrewMember name="Marcus" role="Graphic and web designer" />
+        <CrewMember
+          name="Bowl.jpg (Arthur)"
+          avatarUrl="https://cdn.discordapp.com/avatars/464843909219221514/db63f8763388c0b9ffe74ae4920b314e.webp?size=96"
+        />
+        <CrewMember
+          name="dagelito (Dag)"
+          avatarUrl="https://cdn.discordapp.com/avatars/475642901385183262/38275cd7105360aad18739c9e48eef97.webp?size=96"
+        />
+        <CrewMember
+          name="hmptr (Hampus)"
+          avatarUrl="https://cdn.discordapp.com/avatars/236593753144557568/d0bc029d80424a011aa11ebe06d15cac.webp?size=96"
+        />
+        <CrewMember
+          name="kevzor (Kevin)"
+          avatarUrl="https://cdn.discordapp.com/avatars/186055545520783360/29e7a15813a07cded8d45990b31ad08f.webp?size=96"
+        />
+        <CrewMember
+          name="MiHell (Michell)"
+          avatarUrl="https://cdn.discordapp.com/avatars/286515931721498626/bf5f826c771aac1e6eeb4c5fe58820fb.webp?size=96"
+        />
+        <CrewMember
+          name="Milkyboy (Emil)"
+          avatarUrl="https://cdn.discordapp.com/avatars/319840638755667968/9ac9a86d67779e0fa377badaa88b1af5.webp?size=96"
+        />
+        <CrewMember
+          name="Smugglaren (Adrian)"
+          avatarUrl="https://cdn.discordapp.com/avatars/181431117533020160/17cea493558d425bdbd10417df2e6964.webp?size=96"
+        />
+        <CrewMember
+          name="xfoxx (Marcus)"
+          role="Graphic and web designer"
+          avatarUrl="https://cdn.discordapp.com/avatars/200683422161698816/6f90b35615b3c4e0b5caba1fd17071ab.webp?size=96"
+        />
+        <CrewMember
+          name="Gustaf"
+          role="Old man"
+          avatarUrl="https://cdn.discordapp.com/avatars/228924929226047501/c9dd5c50c86d28e05a53c1327acd8bde.webp?size=96"
+        />
       </ul>
     </div>
   </section>
 
-  <!-- Join -->
+  <!-- Recruitment CTA -->
   <section class="border-t-2 border-bg-subtle px-6 py-8 md:p-16" id="join">
     <div class="container mx-auto flex flex-col items-center gap-8 text-center">
       <h2 class="font-display text-3xl font-normal md:text-5xl text-balance">
@@ -81,7 +118,12 @@ import CrewMember from "../components/CrewMember.astro";
         We're always looking for new, enthusiastic crew members that can help us
         keep LANbyCS going! If you're interested, please contact us via Discord
         or by sending an email to{" "}
-        <a href="mailto:lanbycs@gmail.com" class="underline">
+        <a
+          href="mailto:lanbycs@gmail.com"
+          class="underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           lanbycs@gmail.com
         </a>
         .
