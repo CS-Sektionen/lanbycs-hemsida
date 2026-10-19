@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "lint": "oxlint",
     "astro": "astro"
   },
   "dependencies": {
@@ -20,6 +21,7 @@
     "esbuild": true
   },
   "devDependencies": {
+    "oxlint": "^1.88.0",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "1.0.0",
     "prettier-plugin-tailwindcss": "^0.8.1"
