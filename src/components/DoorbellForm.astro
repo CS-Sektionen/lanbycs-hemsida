@@ -20,6 +20,7 @@ interface Props {
           type="radio"
           name="entrance"
           value={entrance.name}
+          data-description={entrance.description}
           class="sr-only"
         />
         <div class="flex w-full gap-3 p-4 group-has-checked:bg-bg-accent">
@@ -54,10 +55,13 @@ interface Props {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const formData = new FormData(form);
-    const entrance = formData.get("entrance");
+    const selectedRadioButton = form.querySelector<HTMLInputElement>(
+      'input[name="entrance"]:checked',
+    );
+    const entranceName = selectedRadioButton?.value;
+    const entranceDescription = selectedRadioButton?.dataset.description;
 
-    if (!entrance) {
+    if (!entranceName || !selectedRadioButton) {
       alert("Please select an entrance.");
       return;
     }
@@ -72,11 +76,11 @@ interface Props {
         method: "POST",
         headers: {
           "Content-Type": "text/plain",
-          Title: "Doorbell",
+          Title: entranceName,
           Priority: "urgent",
           Tags: "bell",
         } as Record<string, string>,
-        body: `Someone is at ${entrance}`,
+        body: entranceDescription,
       });
 
       if (response.ok) {
